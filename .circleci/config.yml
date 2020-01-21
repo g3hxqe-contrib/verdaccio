@@ -65,10 +65,10 @@ jobs:
           command: yarn install --no-progress --pure-lockfile
       - run:
           name: Prepare CI
-          command:  yarn run pre:ci
+          command:  yarn lint
       - run:
           name: Build project
-          command: yarn run code:build
+          command: yarn build
       - save_cache:
           key: *yarn_cache_key
           paths:

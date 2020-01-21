@@ -1,0 +1,17 @@
+{
+  "name": "@verdaccio/api",
+  "version": "4.3.5-next.1",
+  "description": "loaders logic",
+  "main": "./build/index.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test BABEL_ENV=test jest",
+    "build": "cross-env BABEL_ENV=registry babel src/ --out-dir build/ --copy-files --extensions \".ts,.tsx\" --source-maps inline"
+  },
+  "dependencies": {
+    "mime": "^2.4.4",
+    "body-parser": "^1.19.0"
+  },
+  "devDependencies": {
+    "@verdaccio/dev-types": "^4.3.5-next.1"
+  }
+}

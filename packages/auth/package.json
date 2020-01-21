@@ -1,0 +1,16 @@
+{
+  "name": "@verdaccio/auth",
+  "version": "4.3.5-next.1",
+  "description": "logger",
+  "main": "./build/index.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test BABEL_ENV=test jest",
+    "build": "cross-env BABEL_ENV=registry babel src/ --out-dir build/ --copy-files --extensions \".ts,.tsx\" --source-maps inline"
+  },
+  "dependencies": {
+    "bunyan": "1.8.12"
+  },
+  "devDependencies": {
+    "@types/bunyan": "1.8.6"
+  }
+}
