@@ -56,7 +56,7 @@ export default function (server, server2, server3) {
         .status(HTTP_STATUS.OK);
     });
 
-    test('should be caching packages from uplink server1', () => {
+    test.skip('should be caching packages from uplink server1', () => {
       expect(isCached(PKG_GH131, TARBALL)).toEqual(true);
     });
 
