@@ -17,7 +17,7 @@ setup([]);
 const credentials = { name: 'user-web', password: 'secretPass' };
 
 describe('endpoint web unit test', () => {
-  jest.setTimeout(20000);
+  jest.setTimeout(40000);
   let app;
   let mockRegistry;
 

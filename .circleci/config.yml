@@ -102,14 +102,6 @@ jobs:
     steps:
       - restore_repo
       - run_test
-  test_e2e:
-    <<: *defaults
-    executor: node_latest_browser
-    steps:
-      - restore_repo
-      - run:
-          name: Test End-to-End
-          command: yarn run test:e2e
   test_e2e_cli:
     <<: *defaults
     executor: node_latest
@@ -150,13 +142,6 @@ workflows:
           requires:
             - prepare
           <<: *ignore_non_dev_branches
-      - test_e2e:
-          requires:
-            - prepare
-            - test_node_latest
-            - test_node_lts_10
-            - test_node_lts_12
-          <<: *ignore_non_dev_branches
       - test_e2e_cli:
           requires:
             - prepare
@@ -166,6 +151,5 @@ workflows:
           <<: *ignore_non_dev_branches
       - coverage:
           requires:
-            - test_e2e
             - test_e2e_cli
           <<: *ignore_non_dev_branches
