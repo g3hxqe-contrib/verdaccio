@@ -1,6 +1,5 @@
 import request from 'supertest';
 import path from 'path';
-import rimraf from 'rimraf';
 
 import publishMetadata from './partials/publish-api';
 import forbiddenPlace from './partials/forbidden-place';
@@ -23,7 +22,7 @@ describe('endpoint web unit test', () => {
 
   beforeAll(async (done) => {
     const store = generateRamdonStorage();
-    const mockServerPort = 55544;
+    const mockServerPort = 55523;
     const configForTest = configExample({
       storage: store,
       self_path: store,
