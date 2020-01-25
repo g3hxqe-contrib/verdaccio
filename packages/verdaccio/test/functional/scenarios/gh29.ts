@@ -1,8 +1,9 @@
 import fs from 'fs';
 import path from 'path';
+import {HTTP_STATUS} from "@verdaccio/dev-commons";
+import {createTarballHash} from "@verdaccio/utils";
+
 import {TARBALL} from '../config.functional';
-import {HTTP_STATUS} from "@verdaccio/dev-commons/src/constants";
-import {createTarballHash} from "@verdaccio/utils/src/crypto-utils";
 import requirePackage from '../fixtures/package';
 
 function readfile(filePath) {

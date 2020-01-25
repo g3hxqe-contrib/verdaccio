@@ -1,5 +1,6 @@
+import {API_ERROR, HTTP_STATUS, CHARACTER_ENCODING} from "@verdaccio/dev-commons";
+
 import {readFile} from '../lib/test.utils';
-import {API_ERROR, HTTP_STATUS, CHARACTER_ENCODING} from "@verdaccio/dev-commons/src/constants";
 
 const readTags = () => readFile('../fixtures/publish.json5');
 

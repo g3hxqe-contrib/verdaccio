@@ -1,5 +1,7 @@
 storage: ./test-storage3
 
+plugins: ./test/functional/fixtures/plugins
+
 web:
   enable: true
   title: verdaccio-server-3

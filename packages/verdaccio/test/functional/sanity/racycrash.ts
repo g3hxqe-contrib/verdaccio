@@ -1,5 +1,5 @@
 import {DOMAIN_SERVERS, PORT_SERVER_APP} from '../config.functional';
-import {API_ERROR, HEADER_TYPE, HTTP_STATUS} from '@verdaccio/dev-commons/src/constants';
+import {API_ERROR, HEADER_TYPE, HTTP_STATUS} from '@verdaccio/dev-commons';
 
 export default function(server, express) {
 

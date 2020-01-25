@@ -1,9 +1,10 @@
-import {readFile} from '../lib/test.utils';
-import {createTarballHash} from "@verdaccio/utils/src/crypto-utils";
-import {API_ERROR, HTTP_STATUS} from "@verdaccio/dev-commons/src/constants";
+import {createTarballHash} from "@verdaccio/utils";
+import {API_ERROR, HTTP_STATUS} from "@verdaccio/dev-commons";
+import {DIST_TAGS} from '@verdaccio/dev-commons';
+
 import {DOMAIN_SERVERS, PORT_SERVER_1, TARBALL} from '../config.functional';
 import generatePkg  from '../fixtures/package';
-import {DIST_TAGS} from '@verdaccio/dev-commons/src/constants';
+import {readFile} from '../lib/test.utils';
 
 function getBinary() {
   return readFile('../fixtures/binary');

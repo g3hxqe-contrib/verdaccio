@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import {HTTP_STATUS} from '@verdaccio/dev-commons/src/constants';
+import {HTTP_STATUS} from '@verdaccio/dev-commons';
 
 export default function(server) {
 

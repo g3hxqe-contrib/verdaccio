@@ -1,5 +1,7 @@
 storage: ./test-storage
 
+plugins: ./test/functional/fixtures/plugins
+
 max_users: 2
 
 web:
@@ -7,8 +9,8 @@ web:
   title: verdaccio-server-1
 
 middlewares:
-  ../fixtures/plugins/middlewares.uplink:
-    message: provides uplink mocking (e.g. simulates socket timeout)
+  uplink-fail:
+  #    message: provides uplink mocking (e.g. simulates socket timeout)
 
 auth:
   auth-memory:
@@ -30,7 +32,7 @@ uplinks:
     url: http://localhost:55666/
 
 logs:
-  - { type: stdout, format: pretty, level: trace }
+  - { type: stdout, format: pretty, level: info }
 
 packages:
   '@test/*':

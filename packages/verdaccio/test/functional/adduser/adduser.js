@@ -1,4 +1,4 @@
-import {API_ERROR, HTTP_STATUS} from "@verdaccio/dev-commons/src/constants";
+import {API_ERROR, HTTP_STATUS} from "@verdaccio/dev-commons";
 
 export default function(server) {
   describe('npm adduser', () => {

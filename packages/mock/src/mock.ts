@@ -54,7 +54,7 @@ import {IServerBridge} from './types';
  */
 export function mockServer(port: number, options: MockRegistryOptions = {}) {
   const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), '/verdaccio-test'));
-  console.log("-->tempRoot", tempRoot);
+  // console.log("-->tempRoot", tempRoot);
 
   // default locations
   const configPath = path.join(__dirname,  './config/yaml', '/mock-server-test.yaml');

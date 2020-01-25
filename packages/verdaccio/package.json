@@ -46,9 +46,6 @@
     "@verdaccio/cli": "^4.3.5-next.1",
     "request": "2.87.0"
   },
-  "devDependencies": {
-
-  },
   "keywords": [
     "private",
     "package",

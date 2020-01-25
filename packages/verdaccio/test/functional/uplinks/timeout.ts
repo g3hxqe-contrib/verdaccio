@@ -1,4 +1,4 @@
-import {HTTP_STATUS} from "@verdaccio/dev-commons/src/constants";
+import {HTTP_STATUS} from "@verdaccio/dev-commons";
 
 const PKG_SINGLE_UPLINK = 'test-uplink-timeout-single';
 const PKG_MULTIPLE_UPLINKS = 'test-uplink-timeout-multiple';

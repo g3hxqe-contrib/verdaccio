@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
-import {createTarballHash} from "@verdaccio/utils/src/crypto-utils";
-import { HTTP_STATUS, DIST_TAGS} from "@verdaccio/dev-commons/src/constants";
+import {createTarballHash} from "@verdaccio/utils";
+import { HTTP_STATUS, DIST_TAGS} from "@verdaccio/dev-commons";
+
 import {CREDENTIALS, DOMAIN_SERVERS, PORT_SERVER_1, PORT_SERVER_2, TARBALL} from "../config.functional";
 import whoIam from './whoIam';
 import ping from './ping';

@@ -1,4 +1,4 @@
-import {HTTP_STATUS, API_ERROR} from "@verdaccio/dev-commons/src/constants";
+import {HTTP_STATUS, API_ERROR} from "@verdaccio/dev-commons";
 
 export default function(server2) {
   // credentials

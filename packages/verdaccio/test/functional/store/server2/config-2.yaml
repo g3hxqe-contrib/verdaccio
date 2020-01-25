@@ -1,5 +1,7 @@
 storage: ./test-storage2
 
+plugins: ./test/functional/fixtures/plugins
+
 uplinks:
   server1:
     url: http://localhost:55551/
@@ -10,10 +12,10 @@ web:
   title: verdaccio-server-2
 
 middlewares:
-  ../fixtures/plugins/middlewares:
-    message: this is a custom route
-  ../fixtures/plugins/middlewares.es6:
+  middleware-es6:
     message: this is a custom route es6
+  middleware-es5:
+    message: this is a custom route
 
 max_users: 3
 

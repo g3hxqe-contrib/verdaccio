@@ -1,4 +1,4 @@
-import {HTTP_STATUS} from "@verdaccio/dev-commons/src/constants";
+import {HTTP_STATUS} from "@verdaccio/dev-commons";
 
 export default function (server2) {
   describe('test plugin middlewares', () => {
@@ -9,7 +9,7 @@ export default function (server2) {
       })
         .status(HTTP_STATUS.OK)
         .body_ok('this is a custom route')
-    })
+    });
 
     test('should serve the registered route ES6', () => {
       return server2.request({
@@ -18,6 +18,6 @@ export default function (server2) {
       })
         .status(HTTP_STATUS.OK)
         .body_ok('this is a custom route es6')
-    })
+    });
   })
 }

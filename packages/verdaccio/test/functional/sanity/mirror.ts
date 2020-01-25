@@ -1,6 +1,7 @@
-import {readFile} from '../lib/test.utils';
 import {API_MESSAGE, HTTP_STATUS} from "@verdaccio/dev-commons";
+
 import generatePkg  from '../fixtures/package';
+import {readFile} from '../lib/test.utils';
 import {TARBALL} from '../config.functional';
 
 const getBinary = () =>  readFile('../fixtures/binary');

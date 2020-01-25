@@ -64,7 +64,7 @@ export default class VerdaccioProcess implements IServerProcess {
         }
       });
     }
-    console.log('-->verdaccioRegisterWrap', verdaccioPath);
+
     const {configPath, port} = this.config;
     this.childFork = fork(verdaccioPath, ['-c', configPath, '-l', port as string], childOptions);
 

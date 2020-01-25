@@ -1,12 +1,9 @@
 import { yellow, green, blue, magenta } from 'kleur';
 import path from 'path';
 import NodeEnvironment from 'jest-environment-node';
-import {VerdaccioConfig} from '../../lib/verdaccio-server';
-import VerdaccioProcess from '../../lib/server_process';
-import Server from '../../lib/server';
+import {mockServer} from '@verdaccio/mock';
 import ExpressServer from './simple_server';
-import {IServerBridge} from '../../types';
-import {DOMAIN_SERVERS, PORT_SERVER_1, PORT_SERVER_2, PORT_SERVER_3} from '../config.functional';
+import {PORT_SERVER_1, PORT_SERVER_2, PORT_SERVER_3} from '../config.functional';
 
 const EXPRESS_PORT = 55550;
 
@@ -25,27 +22,28 @@ class FunctionalEnvironment extends NodeEnvironment {
 
 
   public async setup() {
-    const SILENCE_LOG = !process.env.VERDACCIO_DEBUG;
+    // const SILENCE_LOG = !process.env.VERDACCIO_PROCESS_SILENCE || false;
     // @ts-ignore
-    const DEBUG_INJECT: boolean = process.env.VERDACCIO_DEBUG_INJECT ? process.env.VERDACCIO_DEBUG_INJECT : false;
-    const forkList: any[] = [];
-    const serverList: IServerBridge[] = [];
+    // const DEBUG_INJECT: boolean = process.env.VERDACCIO_DEBUG_INJECT ? process.env.VERDACCIO_DEBUG_INJECT : false;
+    const forkList: any = [];
+    const serverList: any = [];
     const pathStore = path.join(__dirname, '../store');
+    const binPath = path.join(__dirname, '../../../bin/verdaccio');
     const listServers = [
       {
         port: PORT_SERVER_1,
         config: '/config-1.yaml',
-        storage: '/test-storage'
+        storage: '/server1'
       },
       {
         port: PORT_SERVER_2,
         config: '/config-2.yaml',
-        storage: '/test-storage2'
+        storage: '/server2'
       },
       {
         port: PORT_SERVER_3,
         config: '/config-3.yaml',
-        storage: '/test-storage3'
+        storage: '/server3'
       }
     ];
     console.log(green('Setup Verdaccio Servers'));
@@ -54,17 +52,19 @@ class FunctionalEnvironment extends NodeEnvironment {
     // @ts-ignore
     this.global.__WEB_SERVER__ = app;
 
-    for (let config of listServers) {
-      const verdaccioConfig = new VerdaccioConfig(
-        path.join(pathStore, config.storage),
-        path.join(pathStore, config.config),
-        `http://${DOMAIN_SERVERS}:${config.port}/`, config.port);
-      console.log(magenta(`Running registry ${config.config} on port ${config.port}`));
-      const server: IServerBridge = new Server(verdaccioConfig.domainPath);
-      serverList.push(server);
-      const process = new VerdaccioProcess(verdaccioConfig, server, SILENCE_LOG, DEBUG_INJECT);
+    for (let serverConf of listServers) {
+      const storePath = path.join(pathStore, serverConf.storage);
+      const configPath = path.join(storePath, serverConf.config);
+      const server = mockServer(serverConf.port, {
+        storePath,
+        configPath,
+        silence: true
+      });
 
-      const fork = await process.init();
+      const fork = await server.init(binPath);
+      console.log(magenta(`Running registry ${serverConf.config} on port ${serverConf.port}`));
+      // @ts-ignore
+      serverList.push(server.bridge);
       console.log(blue(`Fork PID ${fork[1]}`));
       forkList.push(fork);
     }

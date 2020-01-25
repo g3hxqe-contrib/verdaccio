@@ -1,7 +1,7 @@
-
 import _ from 'lodash';
+import { HTTP_STATUS } from '@verdaccio/dev-commons';
+
 import {readFile} from '../lib/test.utils';
-import { HTTP_STATUS } from '@verdaccio/dev-commons/src/constants';
 
 const readTags = () => readFile('../fixtures/tags.json');
 

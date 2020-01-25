@@ -1,4 +1,5 @@
-import {API_ERROR, HEADER_TYPE, HTTP_STATUS} from '@verdaccio/dev-commons/src/constants';
+import {API_ERROR, HEADER_TYPE, HTTP_STATUS} from '@verdaccio/dev-commons';
+
 import {DOMAIN_SERVERS, PORT_SERVER_APP} from '../config.functional';
 
 const defaultPkg = {

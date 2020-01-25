@@ -1,9 +1,9 @@
 // we need this for notifications
-import { setup } from '../../packages/logger/src/logger';
+import { setup } from '@verdaccio/logger';
 
 setup([]);
 
-import {IServerBridge} from '../types';
+// import {IServerBridge} from '../types';
 
 import basic from './basic/basic';
 import packageAccess from './package/access';
@@ -34,9 +34,9 @@ describe('functional test verdaccio', function() {
   // @ts-ignore
   const server1: IServerBridge = global.__SERVERS__[0];
   // @ts-ignore
-  const server2: IServerBridge = global.__SERVERS__[1];
+  const server2 = global.__SERVERS__[1];
   // @ts-ignore
-  const server3: IServerBridge = global.__SERVERS__[2];
+  const server3 = global.__SERVERS__[2];
   // @ts-ignore
   const app = global.__WEB_SERVER__.app;
 
