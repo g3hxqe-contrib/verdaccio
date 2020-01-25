@@ -69,6 +69,6 @@
     "release:publish": "lerna publish from-git",
     "release:publish-prerelease": "lerna publish from-git --pre-dist-tag next",
     "lint": "eslint \"packages/**/@(src|tests)/**\"",
-    "test": "lerna run test --no-bail"
+    "test": "lerna run test"
   }
 }
